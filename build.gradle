@@ -14,7 +14,13 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	//[AUTHORIZATION SERVER] [KEYCLOAK] [Step 2] Add lib for spring security and oauth2 resource server
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-resource-server', version: '2.6.4'
+
 }
 
 tasks.named('test') {

@@ -68,6 +68,10 @@ Obs: Url to get informations: http://localhost:8080/auth/realms/Microservices/.w
     set Client secret: (get it in keycloak in the Client, credential tab)
 
 
+[AUTHORIZATION SERVER] [KEYCLOAK] Creanting a resource server
+    - this project will be a resource server
+    - follow the steps 2, 3 and 4 of [AUTHORIZATION SERVER] [KEYCLOAK] tag
+
 
 
 
