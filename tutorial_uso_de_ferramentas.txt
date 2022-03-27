@@ -1,0 +1,80 @@
+TAGS:
+
+** Seach for tags to learn how to apply tools, libs and frameworks
+
+[AUTHORIZATION SERVER] [KEYCLOAK] use of authorization server
+
+
+[AUTHORIZATION SERVER] [KEYCLOAK] Configuration
+
+- Run command in terminal: docker-compose up -d
+
+- Access url: http://localhost:8080/
+
+- Create a Realm
+    click on Master at the top of left menu -> add realm
+    Set the name: microservices
+    click create button
+
+- Create Roles (ROLE_ADMIN, ROLE_USER and ROLE_SYSTEM)
+    click on Roles in the left menu -> add role
+    set the name and description
+
+- Create User (Admin)
+    click on User in the left menu -> add user
+    set the name: admin
+    click on save button
+    click on Role Mapping tab
+    set the ROLE_ADMIN to the user
+
+- Create User (User)
+    click on User in the left menu -> add user
+    set the name: user
+    click on save button
+    click on Role Mapping tab
+    set the ROLE_USER to the user
+
+- Create a Client
+    click on Client in the left menu -> create button
+    set the Client ID
+    let client protocol as openid-connect
+    set Service Accounts Enabled to ON
+    set OAuth 2.0 Device Authorization Grant Enabled to ON
+    set root url as: http://localhost:8080
+    click on save
+    change Access type to: confidential
+    click on Role tab -> Service Account Roles -> set ROLE_SYSTEM
+
+ - Create a Client Scope
+     click on Client Scope in the left menu -> create
+     set the name: test
+     and Save
+     click on Mappers tab -> create
+     set name to "authorities"
+     set Mapper type to: Realm Role User
+     set Token Claim Name to: authorities
+     set Claim Json Type to: String
+     click on Save
+
+Obs: Url to get informations: http://localhost:8080/auth/realms/Microservices/.well-known/openid-configuration
+
+  Making a test
+    open Postman
+    in a new tab
+    click com Authorization and set Oauth2.0
+    click on Get New Access Token
+    set the Access Token Url: http://localhost:8080/auth/realms/microservices/protocol/openid-connect/token
+    set clientid: customer-service-api
+    set Client secret: (get it in keycloak in the Client, credential tab)
+
+
+
+
+
+
+
+
+
+
+
+
